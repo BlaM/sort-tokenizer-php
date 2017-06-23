@@ -43,6 +43,8 @@ class SortTokenizer {
 
             if (empty($this->keys) || ($this->keys[$v] && in_array($order, $this->keys[$v]))) {
                 $res[] = array($v, $order);
+            } elseif ($this->throwOnUnsupportedKey) {
+                throw new Exception('unsupported key');
             }
         }
 
